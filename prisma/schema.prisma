@@ -18,22 +18,21 @@ model UsuarioSistema {
   createdAt                    DateTime @default(now())
   updatedAt                    DateTime @updatedAt
 }
-
 model Cliente {
-  id                           Int      @id @default(autoincrement())
-  nombre_cliente               String
-  apellido_cliente             String
-  telefono_cliente             String
-  correo_cliente               String   @unique
-  identidad_cliente            String
-  foto_identidad_cliente       String?
-  estado_cliente               Boolean
+  id                     Int      @id @default(autoincrement())
+  nombre_cliente         String
+  apellido_cliente       String
+  telefono_cliente       String
+  correo_cliente         String   @unique
+  identidad_cliente      String
+  foto_identidad_cliente String?
+  estado_cliente         Boolean
 
-  direcciones                  Direccion[]
-  pedidos                      Pedido[]
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
 
-  createdAt                    DateTime @default(now())
-  updatedAt                    DateTime @updatedAt
+  Direccion              Direccion[]
+  Pedido                 Pedido[]
 }
 
 model Direccion {
@@ -194,4 +193,18 @@ model PedidoDetalle {
 
   createdAt                         DateTime @default(now())
   updatedAt                         DateTime @updatedAt
+}
+
+
+
+
+model VerificacionCorreo {
+  id          Int      @id @default(autoincrement())
+  correo      String   @unique
+  codigo      String
+  expiracion  DateTime
+  intentos    Int      @default(0)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

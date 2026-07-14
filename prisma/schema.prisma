@@ -24,6 +24,7 @@ model Cliente {
   apellido_cliente       String
   telefono_cliente       String
   correo_cliente         String   @unique
+  contrasena             String
   identidad_cliente      String
   foto_identidad_cliente String?
   estado_cliente         Boolean
@@ -34,7 +35,6 @@ model Cliente {
   Direccion              Direccion[]
   Pedido                 Pedido[]
 }
-
 model Direccion {
   id                           Int      @id @default(autoincrement())
   id_cliente                   Int
